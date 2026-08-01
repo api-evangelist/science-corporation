@@ -1,0 +1,77 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/sciencecorp/synapse-api
+description: >-
+  Synapse Protocol — the gRPC / Protocol Buffers API for Science Corporation neural
+  interface devices. Protobuf definitions are published open-source in the sciencecorp/synapse-api
+  GitHub repository (tags v2.1.0, v2.0.0, v1.1.0). The core RPC service is SynapseDevice.
+service:
+  name: SynapseDevice
+  package: synapse
+  transport: gRPC over HTTP/2 (control) + UDP streaming (NDTP data plane)
+  rpcs:
+  - Info
+  - Configure
+  - Start
+  - Stop
+  - Query
+  - StreamQuery
+  - DeployApp
+  - ListApps
+  - ListFiles
+  - WriteFile
+  - ReadFile
+  - DeleteFile
+  - GetLogs
+  - TailLogs
+  - UpdateDeviceSettings
+files:
+- file: science-corporation-synapse.proto
+  upstream: api/synapse.proto
+  note: SynapseDevice service definition
+- file: science-corporation-device.proto
+  upstream: api/device.proto
+  note: Device, Peripheral, DeviceConfiguration, DeviceSettings
+- file: science-corporation-node.proto
+  upstream: api/node.proto
+  note: NodeType, NodeConfig, NodeStatus, NodeConnection (signal chain)
+- file: science-corporation-status.proto
+  upstream: api/status.proto
+  note: StatusCode, DeviceState, Status envelope
+- file: science-corporation-datatype.proto
+  upstream: api/datatype.proto
+  note: DataType, Tensor, BroadbandFrame, Timeseries, ImageFrame
+- file: science-corporation-channel.proto
+  upstream: api/channel.proto
+  note: Channel, ChannelType, ChannelRange
+upstream_proto_tree:
+- api/app.proto
+- api/channel.proto
+- api/datatype.proto
+- api/device.proto
+- api/files.proto
+- api/logging.proto
+- api/node.proto
+- api/nodes/application.proto
+- api/nodes/broadband_source.proto
+- api/nodes/camera.proto
+- api/nodes/disk_writer.proto
+- api/nodes/electrical_stimulation.proto
+- api/nodes/optical_stimulation.proto
+- api/nodes/signal_config.proto
+- api/nodes/signal_status.proto
+- api/nodes/spectral_filter.proto
+- api/nodes/spike_binner.proto
+- api/nodes/spike_detector.proto
+- api/nodes/spike_source.proto
+- api/performance.proto
+- api/query.proto
+- api/status.proto
+- api/synapse.proto
+- api/tap.proto
+- api/time.proto
+related:
+- repo: https://github.com/sciencecorp/libndtp
+  note: Neural Data Transport Protocol (NDTP) C++ implementation
+- repo: https://github.com/sciencecorp/science-device-api
+  note: Protobuf definitions for device-related services at Science

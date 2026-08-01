@@ -1,0 +1,36 @@
+# Science Corporation — Synapse Protocol
+
+> Science Corporation is a neurotechnology company (founded 2021 by former Neuralink
+> president Max Hodak) building brain-computer interfaces and implantable neural devices.
+> Its developer surface is the Synapse Protocol: a gRPC / Protocol Buffers standard API for
+> discovering neural interface devices on a local network, configuring on-device signal
+> chains, and streaming high-throughput neural data over UDP (the Neural Data Transport
+> Protocol, NDTP). Official client libraries ship for Python, TypeScript, and C++.
+
+## API
+
+- [Synapse Protocol overview](https://science.xyz/technologies/synapse): Standard API for neural interface devices.
+- [Documentation](https://science.xyz/docs/d/synapse/index): Synapse docs home.
+- [Quickstart](https://science.xyz/docs/d/synapse/quickstart): Install and connect to a device.
+- [Concepts](https://science.xyz/docs/d/synapse/concepts): Nodes, Apps, Taps, signal chains.
+- [Changelog](https://science.xyz/docs/d/synapse/changelog): Dated documentation changelog.
+
+## Specs
+
+- [SynapseDevice gRPC service](grpc/science-corporation-synapse.proto): Core RPC service (Info, Configure, Start, Stop, Query, StreamQuery, DeployApp, files, logs, settings).
+- [Protobuf definitions (GitHub)](https://github.com/sciencecorp/synapse-api): Open synapse-api protobuf tree.
+- [Data model](data-model/science-corporation-data-model.yml): Device / Peripheral / Node / Channel entity graph.
+- [Error codes](errors/science-corporation-error-codes.yml): StatusCode enum registry.
+
+## SDKs & Tools
+
+- [Python SDK + CLI](https://pypi.org/project/science-synapse/): science-synapse (includes the synapsectl CLI and synapse-sim simulator).
+- [TypeScript SDK](https://www.npmjs.com/package/@science-corporation/synapse): @science-corporation/synapse.
+- [C++ SDK](https://github.com/sciencecorp/synapse-cpp): synapse-cpp.
+- [CLI surface](cli/science-corporation-cli.yml): synapsectl command reference.
+
+## Company
+
+- [Science Corporation](https://science.xyz): Company website.
+- [GitHub organization](https://github.com/sciencecorp): Open-source protobuf definitions and client libraries.
+- [Support](https://science.xyz/support/): Product and developer support.

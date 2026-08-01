@@ -1,0 +1,26 @@
+generated: '2026-07-21'
+method: searched
+source: https://science.xyz/docs/d/synapse/changelog
+description: >-
+  Lifecycle posture for the Synapse Protocol. Versioning is semantic; the documentation
+  carries a dated changelog. No public status page, SLA, or formal deprecation policy is
+  published (Synapse is a device-local research/clinical API, not a hosted SaaS).
+versioning:
+  scheme: semver
+  current: 2.2.15
+  docs: https://science.xyz/docs/d/synapse/changelog
+  device_capability: DeviceInfo.synapse_version + DeviceInfo.firmware_version
+changelog: https://science.xyz/docs/d/synapse/changelog
+protobuf_tags:
+- v2.1.0
+- v2.0.0
+- v1.1.0
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: >-
+    No formal deprecation/sunset policy published. The protobuf definitions do use `reserved`
+    field numbers/names (e.g. removed StreamIn/StreamOut node types) to preserve wire
+    compatibility across versions.
+status_page: null
+sla: null

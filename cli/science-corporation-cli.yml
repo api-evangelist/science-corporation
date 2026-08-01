@@ -1,0 +1,53 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/sciencecorp/synapse-python
+description: >-
+  synapsectl — the Synapse Device Manager command-line utility, shipped in the science-synapse
+  Python package. Connects to a Synapse device by IP address or name (--uri).
+cli:
+  name: synapsectl
+  install: pip install science-synapse
+  invocation: "synapsectl [--uri URI] [--verbose] <command>"
+  global_flags:
+  - flag: "--uri, -u"
+    description: The device identifier to connect to (IP address or name).
+  - flag: "--verbose, -v"
+    description: Enable verbose output.
+  - flag: "--version"
+    description: Show program version.
+  commands:
+  - name: discover
+    description: Discover Synapse devices on the network.
+  - name: info
+    description: Get device information.
+  - name: query
+    description: Execute a query on the device.
+  - name: start
+    description: Start the device or an application.
+  - name: stop
+    description: Stop the device or an application.
+  - name: configure
+    description: Write a configuration to the device.
+  - name: logs
+    description: Get logs from the device.
+  - name: read
+    description: Read from a device's Broadband Tap and save to HDF5.
+  - name: plot
+    description: Plot recorded synapse data.
+  - name: file
+    description: File commands.
+  - name: taps
+    description: Interact with taps on the network.
+  - name: deploy
+    description: Deploy an application to a Synapse device.
+  - name: build
+    description: Cross-compile and package an application into a .deb without deploying.
+  - name: settings
+    description: Manage the persistent device settings.
+  - name: deploy-model
+    description: Deploy a machine learning model to a Synapse device.
+companion:
+  name: synapse-sim
+  description: >-
+    Simple Synapse Device Simulator for local development, shipped alongside synapsectl in
+    the same package.

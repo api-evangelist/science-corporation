@@ -1,0 +1,40 @@
+generated: '2026-07-21'
+method: searched
+source: https://science.xyz/docs/d/synapse/changelog
+description: >-
+  Synapse Protocol documentation changelog, published dated on science.xyz. Versioning is
+  semantic (major.minor.patch). Note: these are documentation revision versions; the client
+  libraries version independently (science-synapse 2.7.6, @science-corporation/synapse 2.3.3).
+scheme: semver
+current_version: 2.2.15
+entries:
+- version: 2.2.15
+  date: '2026-06-09'
+  highlights: Added LUX1-16K optical stimulation peripheral documentation.
+- version: 2.2.14
+  date: '2026-01-28'
+  highlights: Link fixes.
+- version: 2.2.13
+  date: '2025-09-09'
+  highlights: Added Optical Stim documentation.
+- version: 2.2.12
+  date: '2025-07-31'
+  highlights: Updated visual diagrams; expanded Synapse Overview and created Quickstart page.
+- version: 2.2.11
+  date: '2025-07-17'
+  highlights: Added Apps and Taps subsections.
+- version: 2.2.10
+  date: '2025-07-10'
+  highlights: >-
+    Added information about Apps, Taps, DiskWriter and HDF5, peripheral device information,
+    Synapse Protocol functionality, OS compatibility, and data storage capabilities.
+- version: 2.1.0
+  date: '2025-05-20'
+  highlights: Reorganized Synapse menu options for thematic clarity.
+- version: 2.0.0
+  date: '2025-04-03'
+  breaking: true
+  highlights: Added Global Reference mode; updated Local Reference mode to Differential mode.
+- version: 0.9.0
+  date: '2024-09-30'
+  highlights: Initial release.

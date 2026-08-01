@@ -1,0 +1,34 @@
+generated: '2026-07-21'
+method: searched
+source: https://science.xyz/technologies/synapse
+description: >-
+  First-party client libraries for the Synapse Protocol, generated from the open protobuf
+  definitions in github.com/sciencecorp/synapse-api. The Python package bundles the
+  synapsectl CLI and a device simulator.
+packages:
+- language: python
+  registry: pypi
+  name: science-synapse
+  version: 2.7.6
+  url: https://pypi.org/project/science-synapse/
+  install: pip install science-synapse
+  repo: https://github.com/sciencecorp/synapse-python
+  official: true
+  provides: [SDK, CLI, device-simulator]
+  note: Client library and CLI (synapsectl) for the Synapse API; includes synapse-sim.
+- language: typescript
+  registry: npm
+  name: "@science-corporation/synapse"
+  version: 2.3.3
+  url: https://www.npmjs.com/package/@science-corporation/synapse
+  install: npm install @science-corporation/synapse
+  repo: https://github.com/sciencecorp/synapse-typescript
+  official: true
+- language: cpp
+  registry: github
+  name: synapse-cpp
+  url: https://github.com/sciencecorp/synapse-cpp
+  install: "vcpkg / CMake (see repo)"
+  repo: https://github.com/sciencecorp/synapse-cpp
+  official: true
+  note: C++ client library; source-distributed (sciencecorp maintains a vcpkg registry).

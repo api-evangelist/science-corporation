@@ -1,0 +1,53 @@
+generated: '2026-07-21'
+method: derived
+status: candidate
+source: grpc/science-corporation-synapse.proto
+description: >-
+  Candidate MCP tool surface derived one-to-one from the SynapseDevice gRPC service. Science
+  Corporation does not publish a hosted/remote MCP server; this is a proposed local (stdio)
+  wrapper over synapsectl / the Synapse Python client so an agent can drive a neural
+  interface device. Not an official Science Corporation server.
+server:
+  name: synapse
+  transport: stdio
+  backs: synapsectl (science-synapse)
+tools:
+- name: discover_devices
+  description: Discover Synapse devices on the local network.
+  source_operation: grpc/science-corporation-synapse.proto#SynapseDevice (discover via synapsectl)
+- name: get_device_info
+  description: Get device information, peripherals, and current configuration.
+  source_operation: grpc/science-corporation-synapse.proto#Info
+- name: configure_device
+  description: Write a signal-chain configuration (nodes + connections) to the device.
+  source_operation: grpc/science-corporation-synapse.proto#Configure
+- name: start_device
+  description: Start the device or a deployed application.
+  source_operation: grpc/science-corporation-synapse.proto#Start
+- name: stop_device
+  description: Stop the device or a deployed application.
+  source_operation: grpc/science-corporation-synapse.proto#Stop
+- name: query_device
+  description: Execute a query on the device.
+  source_operation: grpc/science-corporation-synapse.proto#Query
+- name: stream_query
+  description: Open a streaming query against the device.
+  source_operation: grpc/science-corporation-synapse.proto#StreamQuery
+- name: list_apps
+  description: List applications deployed to the device.
+  source_operation: grpc/science-corporation-synapse.proto#ListApps
+- name: deploy_app
+  description: Deploy an application package to the device.
+  source_operation: grpc/science-corporation-synapse.proto#DeployApp
+- name: list_files
+  description: List files stored on the device.
+  source_operation: grpc/science-corporation-synapse.proto#ListFiles
+- name: read_file
+  description: Read a file from the device (streamed).
+  source_operation: grpc/science-corporation-synapse.proto#ReadFile
+- name: get_logs
+  description: Query device logs.
+  source_operation: grpc/science-corporation-synapse.proto#GetLogs
+- name: update_device_settings
+  description: Update persistent device settings.
+  source_operation: grpc/science-corporation-synapse.proto#UpdateDeviceSettings

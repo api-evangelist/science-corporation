@@ -1,0 +1,8 @@
+generated: '2026-07-21'
+method: generated
+source: grpc/science-corporation-synapse.proto
+skills:
+- file: science-corporation-record-neural-data.md
+  name: Record neural data from a Synapse device
+  api: grpc/science-corporation-synapse.proto
+  operations: [discover, Info, Configure, Start, Query, StreamQuery, Stop, ReadFile]

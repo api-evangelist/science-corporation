@@ -1,0 +1,55 @@
+generated: '2026-07-21'
+method: searched
+source: https://science.xyz/docs/d/synapse/index
+description: >-
+  Cross-cutting request/response semantics for the Synapse Protocol, derived from the
+  protobuf service and the science.xyz Synapse docs. Synapse is a device-local gRPC API,
+  not a hosted cloud API — clients discover and connect to devices on the local network.
+transport:
+  control_plane: gRPC over HTTP/2
+  data_plane: >-
+    UDP streaming via the Neural Data Transport Protocol (NDTP). Increasing the OS UDP
+    buffer size (net.core.rmem_max / wmem_max) is recommended to minimize packet loss.
+  service: synapse.SynapseDevice
+discovery:
+  mechanism: >-
+    Devices are auto-discovered on the local network (UDP discovery). Clients connect by
+    device name or IP via the --uri flag / discover command.
+  multi_client: Multiple clients may connect to a single device simultaneously.
+authentication:
+  model: none
+  note: >-
+    No API-key/OAuth authentication is documented; access is scoped to the local network
+    where the device is reachable. Operation-level authorization surfaces as the
+    kPermissionDenied StatusCode.
+signal_chain:
+  model: >-
+    A device is configured with a DeviceConfiguration: a list of typed nodes (NodeConfig)
+    plus directed NodeConnection edges wiring node outputs to inputs. Configuration is
+    applied on-device to minimize latency and maximize bandwidth.
+streaming:
+  taps: >-
+    Taps expose each node output as a dedicated message queue (topologically distributed),
+    letting clients subscribe to broadband, spike, timestamp, image, or waveform streams.
+  frames: >-
+    BroadbandFrame / ImageFrame carry a monotonically increasing sequence_number and both a
+    monotonic timestamp_ns and a unix_timestamp_ns so clients can detect dropped frames.
+error_envelope:
+  model: >-
+    Mutating and query RPCs return a Status message (code: StatusCode enum, message: string,
+    state: DeviceState). See errors/science-corporation-error-codes.yml.
+versioning:
+  scheme: semver
+  device_info: >-
+    DeviceInfo reports synapse_version and firmware_version integers so clients can gate on
+    device capability. Docs changelog is published dated at /docs/d/synapse/changelog.
+idempotency:
+  supported: false
+  note: No idempotency-key mechanism is documented; the API is a stateful device controller.
+rate_limiting:
+  documented: false
+cross_links:
+  errors: errors/science-corporation-error-codes.yml
+  lifecycle: lifecycle/science-corporation-lifecycle.yml
+  data_model: data-model/science-corporation-data-model.yml
+  grpc: grpc/science-corporation-synapse.proto

@@ -1,0 +1,59 @@
+generated: '2026-07-21'
+method: derived
+source: grpc/science-corporation-status.proto
+format: grpc-status-enum
+description: >-
+  Error registry for the Synapse Protocol. Every RPC that mutates or queries the device
+  returns a Status message whose `code` field is one of the StatusCode enum values below;
+  `message` carries a human-readable detail and `state` reports the DeviceState. Derived
+  from the StatusCode / DeviceState enums in api/status.proto.
+envelope:
+  message: Status
+  fields:
+    code: StatusCode
+    message: string
+    state: DeviceState
+error_codes:
+- code: kOk
+  value: 0
+  meaning: The operation succeeded.
+  action: none
+- code: kUndefinedError
+  value: 1
+  meaning: An unspecified error occurred.
+  action: Inspect Status.message; retry or contact support.
+- code: kInvalidConfiguration
+  value: 2
+  meaning: The submitted device/signal-chain configuration is invalid.
+  action: Fix the NodeConfig / NodeConnection graph and re-Configure.
+- code: kFailedPrecondition
+  value: 3
+  meaning: The device is not in a state that allows the requested operation.
+  action: Check DeviceState (e.g. Start requires a configured, stopped device) and retry.
+- code: kUnimplemented
+  value: 4
+  meaning: The requested operation or node type is not implemented on this device.
+  action: Verify device firmware/capabilities; avoid the unsupported feature.
+- code: kInternalError
+  value: 5
+  meaning: An internal device error occurred.
+  action: Retry; if persistent, capture logs (GetLogs) and contact support.
+- code: kPermissionDenied
+  value: 6
+  meaning: The operation was not permitted.
+  action: Verify the operation is allowed for the device's current mode.
+- code: kQueryFailed
+  value: 7
+  meaning: A Query / StreamQuery request failed to execute.
+  action: Validate the query against device state and configured taps; retry.
+device_states:
+- state: kUnknown
+  value: 0
+- state: kInitializing
+  value: 1
+- state: kStopped
+  value: 2
+- state: kRunning
+  value: 3
+- state: kError
+  value: 4

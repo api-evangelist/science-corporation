@@ -1,8 +1,16 @@
 aid: science-corporation
 name: Science Corporation
-description: Science Corporation is a company surfaced as a portfolio company of lightspeed-venture-partners
-  and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the
-  enrichment pipeline.
+description: >-
+  Science Corporation is a neurotechnology company founded in 2021 by former Neuralink
+  president Max Hodak, developing brain-computer interfaces and implantable neural devices
+  to restore vision, cognition, and mobility (its PRIMA retinal implant and biohybrid BCI
+  are its marquee programs). Its developer-facing surface is the Synapse Protocol, a flexible
+  gRPC / Protocol Buffers standard API — paired with the Neural Data Transport Protocol
+  (NDTP) — for discovering neural interface devices on a local network, configuring on-device
+  signal chains (broadband source, spike detector, electrical/optical stimulation, disk
+  writer, camera nodes), and streaming high-throughput neural data over UDP. Official client
+  libraries ship for Python (science-synapse, including the synapsectl CLI), TypeScript, and
+  C++, all generated from the open protobuf definitions in the sciencecorp GitHub org.
 url: https://raw.githubusercontent.com/api-evangelist/science-corporation/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -10,14 +18,101 @@ x-backed-by:
 - lightspeed-venture-partners
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
+image: https://science.xyz/favicon.ico
 tags:
 - Company
-apis: []
+- Neurotechnology
+- Brain-Computer Interface
+- Neural Interface
+- Medical Device
+- gRPC
+- Protocol Buffers
+- Streaming
+- Neuroscience
+- Bioelectronics
+apis:
+- name: Synapse Protocol
+  description: >-
+    A flexible, powerful standard gRPC / Protocol Buffers API for neural interface devices.
+    The SynapseDevice service exposes device discovery, info, configuration of on-device
+    signal chains, start/stop, query and streaming query, application deployment, file
+    management, logging, and device settings. Data streams to and from clients over UDP via
+    the Neural Data Transport Protocol (NDTP).
+  humanURL: https://science.xyz/technologies/synapse
+  baseURL: https://science.xyz/docs/d/synapse/index
+  properties:
+  - type: Documentation
+    url: https://science.xyz/docs/d/synapse/index
+  - type: APIReference
+    url: https://science.xyz/docs/d/synapse/concepts
+  - type: GettingStarted
+    url: https://science.xyz/docs/d/synapse/quickstart
+  - type: ChangeLog
+    url: https://science.xyz/docs/d/synapse/changelog
+  - type: ChangeLog
+    url: changelog/science-corporation-changelog.yml
+  - type: Protobuf
+    url: grpc/science-corporation-synapse.proto
+  - type: CLI
+    url: cli/science-corporation-cli.yml
+  - type: Packages
+    url: packages/science-corporation-packages.yml
+  - type: SDKs
+    url: packages/science-corporation-packages.yml
+  - type: MCPServer
+    url: mcp/science-corporation-mcp.yml
+  - type: ErrorCatalog
+    url: errors/science-corporation-error-codes.yml
+  - type: Conventions
+    url: conventions/science-corporation-conventions.yml
+  - type: Lifecycle
+    url: lifecycle/science-corporation-lifecycle.yml
+  - type: DataModel
+    url: data-model/science-corporation-data-model.yml
+  - type: Conformance
+    url: conformance/science-corporation-conformance.yml
+  - type: AgentSkill
+    url: skills/_index.yml
+  - type: LLMsTxt
+    url: llms/science-corporation-llms.txt
+common:
+- type: Website
+  url: https://science.xyz
+- type: DeveloperPortal
+  url: https://science.xyz/docs/d/synapse/index
+- type: Documentation
+  url: https://science.xyz/docs/d/synapse/index
+- type: GettingStarted
+  url: https://science.xyz/docs/d/synapse/quickstart
+- type: ChangeLog
+  url: https://science.xyz/docs/d/synapse/changelog
+- type: Support
+  url: https://science.xyz/support/
+- type: GitHubOrganization
+  url: https://github.com/sciencecorp
+- type: DomainSecurity
+  url: security/science-corporation-domain-security.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 20
+  pass: local-v1

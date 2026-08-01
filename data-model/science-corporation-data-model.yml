@@ -1,0 +1,78 @@
+generated: '2026-07-21'
+method: derived
+source: grpc/science-corporation-device.proto, grpc/science-corporation-node.proto, grpc/science-corporation-datatype.proto
+description: >-
+  Entity-relationship graph for the Synapse Protocol, derived from the protobuf message
+  definitions. A Device exposes Peripherals and is configured with a signal chain of typed
+  Nodes wired by Connections; Nodes emit typed data frames (broadband, spike, image).
+entities:
+- name: DeviceInfo
+  key: serial
+  fields: [name, serial, synapse_version, firmware_version, status, peripherals, configuration]
+- name: Peripheral
+  key: peripheral_id
+  fields: [name, vendor, peripheral_id, type, address]
+- name: DeviceConfiguration
+  fields: [nodes, connections]
+- name: NodeConfig
+  key: id
+  fields: [type, id, config]
+- name: NodeConnection
+  fields: [src_node_id, dst_node_id]
+- name: Status
+  fields: [message, code, state, power, storage, signal_chain, time_sync_port]
+- name: Channel
+  key: id
+  fields: [id, electrode_id, reference_id, type]
+- name: BroadbandFrame
+  fields: [timestamp_ns, sequence_number, frame_data, sample_rate_hz, channel_ranges]
+- name: ImageFrame
+  fields: [width, height, format, sample_rate_hz, sequence_number, timestamp_ns, data]
+relationships:
+- from: DeviceInfo
+  to: Peripheral
+  kind: has_many
+  via: peripherals
+- from: DeviceInfo
+  to: DeviceConfiguration
+  kind: has_one
+  via: configuration
+- from: DeviceInfo
+  to: Status
+  kind: has_one
+  via: status
+- from: DeviceConfiguration
+  to: NodeConfig
+  kind: has_many
+  via: nodes
+- from: DeviceConfiguration
+  to: NodeConnection
+  kind: has_many
+  via: connections
+- from: NodeConnection
+  to: NodeConfig
+  kind: belongs_to
+  via: src_node_id
+- from: NodeConnection
+  to: NodeConfig
+  kind: belongs_to
+  via: dst_node_id
+- from: Status
+  to: SignalChainStatus
+  kind: has_one
+  via: signal_chain
+- from: BroadbandFrame
+  to: Channel
+  kind: has_many
+  via: channel_ranges
+node_types:
+- kBroadbandSource
+- kElectricalStimulation
+- kOpticalStimulation
+- kSpikeDetector
+- kSpikeSource
+- kSpectralFilter
+- kDiskWriter
+- kSpikeBinner
+- kApplication
+- kCamera
