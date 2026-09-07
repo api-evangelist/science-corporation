@@ -102,6 +102,12 @@ apis:
   - type: LLMsTxt
     url: llms/science-corporation-llms.txt
 common:
+- type: Blog
+  url: https://science.xyz/news
+- type: TermsOfService
+  url: https://science.xyz/legal/terms
+- type: PrivacyPolicy
+  url: https://science.xyz/legal/privacy
 - type: Website
   url: https://science.xyz
 - type: DeveloperPortal
@@ -128,5 +134,3 @@ x-enrichment:
   status: enriched
   artifacts_added: 20
   pass: local-v1
-x-parent: science
-x-relationship: product
